@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio Cerâmica | Vasos Texturizados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <h1 class="logo">Estúdio Cerâmica</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#colecoes">Coleções</a></li>
+                    <li><a href="#materiais">Materiais</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="hero-section">
+            <h2 class="hero-title">Design em Relevo</h2>
+            <p class="hero-description">Texturas únicas esculpidas à mão, projetadas para transformar a atmosfera do seu ambiente interno ou externo através do contraste de luz e sombra.</p>
+        </section>
+
+        <section id="catalogo">
+            <div class="product-grid" id="grid-vitrine"></div>
+        </section>
+    </main>
+
+    <div id="produto-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="fechar-modal" id="btn-fechar">&times;</button>
+            <div class="modal-grid">
+                <div class="zoom-area" id="zoom-container">
+                    </div>
+                <div class="modal-info">
+                    <h2 id="modal-titulo" style="margin-top: 0;">Nome do Produto</h2>
+                    <p id="modal-preco" style="font-size: 1.5rem; font-weight: 600; color: var(--whatsapp-green); margin-bottom: 1rem;">R$ 0,00</p>
+                    <p id="modal-descricao" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">Descrição detalhada.</p>
+                    
+                    <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Especificações</h4>
+                    <ul id="modal-specs" style="list-style: none; padding: 0; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+                        </ul>
+                    
+                    <a href="#" id="modal-whatsapp" class="btn-whatsapp">Falar com vendedor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Estúdio Cerâmica. Feito à mão.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

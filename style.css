@@ -1,0 +1,296 @@
+/* Reset Básico e Variáveis de Cor */
+:root {
+    --bg-color: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --text-light: #888888;
+    --border-color: #EAEAEA;
+    --img-placeholder: #EEEEEE;
+    --whatsapp-green: #25D366;
+    --hover-green: #1ebd5a;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Tipografia e Cabeçalho */
+.main-header {
+    padding: 1.5rem 0;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--text-main);
+}
+
+/* Área de Destaque */
+.main-content {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.hero-section {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid de Produtos Responsivo */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Cartões de Produto */
+.product-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+.product-image-wrapper {
+    aspect-ratio: 4/5;
+    background-color: var(--img-placeholder);
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.zoom-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.95);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--text-main);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.product-material {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.product-specs {
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--img-placeholder);
+    padding-top: 1rem;
+}
+
+.product-specs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: grid;
+    gap: 0.5rem;
+}
+
+.product-specs strong {
+    color: var(--text-main);
+}
+
+.btn-whatsapp {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--whatsapp-green);
+    color: white;
+    padding: 0.9rem 0;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    margin-top: auto;
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--hover-green);
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: var(--text-main);
+    color: var(--text-light);
+    text-align: center;
+    padding: 3rem 5%;
+    margin-top: auto;
+}
+
+/* Ajustes finos para Mobile */
+@media (max-width: 600px) {
+    .main-nav ul {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .header-container {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Estilos do Modal e Zoom */
+.modal-overlay {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+}
+
+.fechar-modal:hover {
+    color: var(--text-main);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.zoom-area {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background-color: var(--img-placeholder);
+    background-position: 50% 50%;
+    background-size: cover; /* Estado inicial */
+    cursor: zoom-in;
+    transition: background-size 0.2s ease;
+}
+
+/* Quando passa o mouse, a imagem cresce para revelar os detalhes */
+.zoom-area:hover {
+    background-size: 250%; /* Nível de aproximação */
+}
+
+.modal-info {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-info {
+        padding: 1.5rem;
+    }
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}

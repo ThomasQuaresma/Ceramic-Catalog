@@ -1,0 +1,195 @@
+[
+  {
+    "id": "vaso-brutalista-01",
+    "titulo": "Vaso Cilíndrico Brutalista",
+    "material": "Argila texturizada com acabamento em concreto celular.",
+    "volume": "12 Litros",
+    "dimensoes": "35cm (A) x 20cm (Ø)",
+    "imagem": "vaso.webp"
+  },
+  {
+    "id": "anfora-organica-02",
+    "titulo": "Ânfora Orgânica",
+    "material": "Cerâmica de alta temperatura com ranhuras horizontais.",
+    "volume": "8 Litros",
+    "dimensoes": "42cm (A) x 18cm (Ø)",
+    "imagem": "https://picsum.photos/seed/organica/1000/1200"
+  },
+  {
+    "id": "cachepot-rustico-03",
+    "titulo": "Cachepot Rústico Fissurado",
+    "material": "Design inspirado em solo árido com fissuras profundas.",
+    "volume": "15 Litros",
+    "dimensoes": "25cm (A) x 30cm (Ø)",
+    "imagem": "https://picsum.photos/seed/rustico/1000/1200"
+  },
+  {
+    "id": "bacia-gota-04",
+    "titulo": "Bacia Gota de Concreto",
+    "material": "Formato amplo e baixo para suculentas e arranjos rasos.",
+    "volume": "6 Litros",
+    "dimensoes": "12cm (A) x 40cm (Ø)",
+    "imagem": "https://picsum.photos/seed/bacia/1000/1200"
+  },
+  {
+    "id": "vaso-esferico-terracota-05",
+    "titulo": "Vaso Esférico Terracota",
+    "material": "Terracota porosa com acabamento natural envelhecido.",
+    "volume": "10 Litros",
+    "dimensoes": "30cm (A) x 30cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso5/1000/1200"
+  },
+  {
+    "id": "cachepot-industrial-06",
+    "titulo": "Cachepot Quadrado Industrial",
+    "material": "Cimento queimado puro com porosidade aparente.",
+    "volume": "18 Litros",
+    "dimensoes": "40cm (A) x 40cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso6/1000/1200"
+  },
+  {
+    "id": "vaso-gota-acetinado-07",
+    "titulo": "Vaso Gota Acetinado",
+    "material": "Cerâmica de alta temperatura com esmalte fosco preto.",
+    "volume": "5 Litros",
+    "dimensoes": "25cm (A) x 15cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso7/1000/1200"
+  },
+  {
+    "id": "floreira-estriada-08",
+    "titulo": "Floreira Estriada Longa",
+    "material": "Barro moldado com estrias verticais profundas.",
+    "volume": "20 Litros",
+    "dimensoes": "20cm (A) x 60cm (C)",
+    "imagem": "https://picsum.photos/seed/vaso8/1000/1200"
+  },
+  {
+    "id": "vaso-cilindrico-canelado-09",
+    "titulo": "Vaso Cilíndrico Canelado",
+    "material": "Cerâmica branca com textura canelada suave.",
+    "volume": "12 Litros",
+    "dimensoes": "35cm (A) x 20cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso9/1000/1200"
+  },
+  {
+    "id": "bacia-oval-rustica-10",
+    "titulo": "Bacia Oval Rústica",
+    "material": "Mistura de argila e chamote para textura super grossa.",
+    "volume": "8 Litros",
+    "dimensoes": "15cm (A) x 45cm (C)",
+    "imagem": "https://picsum.photos/seed/vaso10/1000/1200"
+  },
+  {
+    "id": "vaso-garrafa-minimalista-11",
+    "titulo": "Vaso Garrafa Minimalista",
+    "material": "Porcelana fosca sem esmalte na cor areia.",
+    "volume": "3 Litros",
+    "dimensoes": "40cm (A) x 12cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso11/1000/1200"
+  },
+  {
+    "id": "cachepot-geometrico-12",
+    "titulo": "Cachepot Geométrico Hexagonal",
+    "material": "Concreto pigmentado em tom grafite escuro.",
+    "volume": "7 Litros",
+    "dimensoes": "22cm (A) x 25cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso12/1000/1200"
+  },
+  {
+    "id": "vaso-vulcanico-13",
+    "titulo": "Vaso Vulcânico Poroso",
+    "material": "Argila expandida com crateras em baixo relevo.",
+    "volume": "14 Litros",
+    "dimensoes": "38cm (A) x 28cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso13/1000/1200"
+  },
+  {
+    "id": "pote-bojudo-etnico-14",
+    "titulo": "Pote Bojudo Étnico",
+    "material": "Cerâmica terracota com marcações geométricas manuais.",
+    "volume": "16 Litros",
+    "dimensoes": "32cm (A) x 35cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso14/1000/1200"
+  },
+  {
+    "id": "vaso-cone-invertido-15",
+    "titulo": "Vaso Cone Invertido",
+    "material": "Cimento lixado com impermeabilização fosca.",
+    "volume": "9 Litros",
+    "dimensoes": "45cm (A) x 22cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso15/1000/1200"
+  },
+  {
+    "id": "cachepot-organico-16",
+    "titulo": "Cachepot Orgânico Ondulado",
+    "material": "Barro de modelagem livre com bordas irregulares.",
+    "volume": "11 Litros",
+    "dimensoes": "28cm (A) x 28cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso16/1000/1200"
+  },
+  {
+    "id": "vaso-pilastra-17",
+    "titulo": "Vaso Pilastra Romano",
+    "material": "Cerâmica estrutural com ranhuras verticais densas.",
+    "volume": "25 Litros",
+    "dimensoes": "60cm (A) x 30cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso17/1000/1200"
+  },
+  {
+    "id": "bacia-meia-lua-18",
+    "titulo": "Bacia Meia-Lua Suspensa",
+    "material": "Terracota leve para pendurar em paredes estruturais.",
+    "volume": "4 Litros",
+    "dimensoes": "12cm (A) x 30cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso18/1000/1200"
+  },
+  {
+    "id": "vaso-anfora-moderna-19",
+    "titulo": "Vaso Ânfora Moderna",
+    "material": "Grês preto com polimento superficial liso.",
+    "volume": "10 Litros",
+    "dimensoes": "48cm (A) x 20cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso19/1000/1200"
+  },
+  {
+    "id": "cachepot-cilindro-baixo-20",
+    "titulo": "Cachepot Cilindro Baixo",
+    "material": "Concreto exposto com microfuros de ar aparentes.",
+    "volume": "6 Litros",
+    "dimensoes": "15cm (A) x 25cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso20/1000/1200"
+  },
+  {
+    "id": "vaso-torre-rustica-21",
+    "titulo": "Vaso Torre Rústica",
+    "material": "Argila mista com esmalte reativo em tons de ferrugem.",
+    "volume": "18 Litros",
+    "dimensoes": "55cm (A) x 24cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso21/1000/1200"
+  },
+  {
+    "id": "vaso-prisma-triangular-22",
+    "titulo": "Vaso Prisma Triangular",
+    "material": "Cerâmica moldada em placas geométricas retas.",
+    "volume": "8 Litros",
+    "dimensoes": "30cm (A) x 20cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso22/1000/1200"
+  },
+  {
+    "id": "cachepot-bola-amassada-23",
+    "titulo": "Cachepot Bola Amassada",
+    "material": "Design escultórico imitando argila deformada pela pressão.",
+    "volume": "5 Litros",
+    "dimensoes": "20cm (A) x 22cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso23/1000/1200"
+  },
+  {
+    "id": "vaso-tubo-estreito-24",
+    "titulo": "Vaso Tubo Estreito",
+    "material": "Gres de alta densidade para arranjos secos únicos.",
+    "volume": "2 Litros",
+    "dimensoes": "35cm (A) x 10cm (Ø)",
+    "imagem": "https://picsum.photos/seed/vaso24/1000/1200"
+  }
+]
+
