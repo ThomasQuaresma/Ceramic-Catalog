@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -16,9 +17,8 @@
             <h1 class="logo">Estúdio Cerâmica</h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#colecoes">Coleções</a></li>
-                    <li><a href="#materiais">Materiais</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#catalogo">Coleções</a></li>
+                    <li><a href="#garantia">Garantia</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,35 +30,62 @@
             <p class="hero-description">Texturas únicas esculpidas à mão, projetadas para transformar a atmosfera do seu ambiente interno ou externo através do contraste de luz e sombra.</p>
         </section>
 
+        <section class="filtros-section">
+            <div class="filtros-container" id="container-filtros">
+                <button class="btn-filtro ativo" data-categoria="todos">Todos os Modelos</button>
+                <button class="btn-filtro" data-categoria="rustico">Linha Rústica</button>
+                <button class="btn-filtro" data-categoria="moderno">Design Moderno</button>
+                <button class="btn-filtro" data-categoria="organico">Formas Orgânicas</button>
+            </div>
+        </section>
+
         <section id="catalogo">
             <div class="product-grid" id="grid-vitrine"></div>
         </section>
     </main>
 
-    <div id="produto-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="fechar-modal" id="btn-fechar">&times;</button>
-            <div class="modal-grid">
-                <div class="zoom-area" id="zoom-container">
-                    </div>
-                <div class="modal-info">
-                    <h2 id="modal-titulo" style="margin-top: 0;">Nome do Produto</h2>
-                    <p id="modal-preco" style="font-size: 1.5rem; font-weight: 600; color: var(--whatsapp-green); margin-bottom: 1rem;">R$ 0,00</p>
-                    <p id="modal-descricao" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">Descrição detalhada.</p>
-                    
-                    <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Especificações</h4>
-                    <ul id="modal-specs" style="list-style: none; padding: 0; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
-                        </ul>
-                    
-                    <a href="#" id="modal-whatsapp" class="btn-whatsapp">Falar com vendedor</a>
-                </div>
+    <section id="garantia" class="trust-section">
+        <div class="container trust-grid">
+            <div class="trust-item">
+                <h3 class="trust-title">Embalagem Estrutural</h3>
+                <p class="trust-text">Caixas reforçadas e berços de contenção para garantir que a cerâmica chegue intacta ao seu destino.</p>
+            </div>
+            <div class="trust-item">
+                <h3 class="trust-title">Produção Artesanal</h3>
+                <p class="trust-text">Peças únicas esculpidas à mão com variações exclusivas de textura, relevo e tonalidade da argila.</p>
+            </div>
+            <div class="trust-item">
+                <h3 class="trust-title">Atendimento Direto</h3>
+                <p class="trust-text">Suporte especializado via WhatsApp para orientar sobre medidas, impermeabilização e cuidados técnicos.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer class="main-footer">
         <p>&copy; 2026 Estúdio Cerâmica. Feito à mão.</p>
     </footer>
+
+    <div id="produto-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="fechar-modal" id="btn-fechar">&times;</button>
+            <div class="modal-grid">
+                <div class="zoom-area" id="zoom-container"></div>
+                <div class="modal-info">
+                    <h2 id="modal-titulo" style="margin-top: 0; font-size: 1.8rem;">Nome</h2>
+                    <p id="modal-preco" style="font-size: 1.5rem; font-weight: 600; color: var(--whatsapp-green); margin-bottom: 1rem;">Sob Consulta</p>
+                    <p id="modal-descricao" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">Descrição</p>
+                    
+                    <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Especificações</h4>
+                    <ul id="modal-specs" style="list-style: none; padding: 0; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;"></ul>
+                    
+                    <a href="#" id="modal-whatsapp" class="btn-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        Comprar via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

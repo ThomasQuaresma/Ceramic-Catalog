@@ -1,4 +1,3 @@
-/* Reset Básico e Variáveis de Cor */
 :root {
     --bg-color: #FAFAFA;
     --card-bg: #FFFFFF;
@@ -9,6 +8,7 @@
     --img-placeholder: #EEEEEE;
     --whatsapp-green: #25D366;
     --hover-green: #1ebd5a;
+    --brand-dark: #1A1A1A;
 }
 
 body {
@@ -17,15 +17,22 @@ body {
     color: var(--text-main);
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+/* Animações Globais */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tipografia e Cabeçalho */
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .main-header {
     padding: 1.5rem 0;
     background-color: var(--card-bg);
@@ -35,85 +42,69 @@ body {
     z-index: 100;
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.logo { font-size: 1.5rem; font-weight: 600; margin: 0; color: var(--brand-dark); }
+.main-nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+.main-nav a { text-decoration: none; color: var(--text-muted); font-weight: 400; transition: color 0.2s ease; }
+.main-nav a:hover { color: var(--brand-dark); }
+
+.main-content { margin-top: 4rem; margin-bottom: 4rem; }
+.hero-section { margin-bottom: 3rem; text-align: center; }
+.hero-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; margin-bottom: 1rem; letter-spacing: -0.5px; }
+.hero-description { color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+/* Filtros de Categoria */
+.filtros-section { margin-bottom: 3rem; text-align: center; }
+.filtros-container {
+    display: inline-flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: var(--card-bg);
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.logo {
-    font-size: 1.5rem;
+.btn-filtro {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text-muted);
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
     font-weight: 600;
-    margin: 0;
 }
 
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
+.btn-filtro:hover { color: var(--brand-dark); }
+.btn-filtro.ativo { background-color: var(--brand-dark); color: white; }
 
-.main-nav a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 400;
-    transition: color 0.2s ease;
-}
-
-.main-nav a:hover {
-    color: var(--text-main);
-}
-
-/* Área de Destaque */
-.main-content {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-}
-
-.hero-section {
-    margin-bottom: 4rem;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 300;
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
-}
-
-.hero-description {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* Grid de Produtos Responsivo */
+/* Grid e Cartões */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
 }
 
-/* Cartões de Produto */
 .product-card {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    opacity: 0; /* Inicia invisível para a animação */
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.06);
 }
 
 .product-image-wrapper {
@@ -131,166 +122,88 @@ body {
     right: 12px;
     font-size: 0.75rem;
     background: rgba(255,255,255,0.95);
-    padding: 6px 10px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 20px;
     font-weight: 600;
     color: var(--text-main);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background 0.2s ease;
 }
 
-.product-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem 0;
+.product-card:hover .zoom-badge { background: var(--brand-dark); color: white; }
+.product-title { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.5rem 0; color: var(--brand-dark); }
+.product-material { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.4; flex-grow: 1; }
+
+/* Seção de Confiança (Trust) */
+.trust-section {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 4rem 0;
+    margin-top: 5rem;
 }
 
-.product-material {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-    flex-grow: 1;
-}
-
-.product-specs {
-    margin-bottom: 1.5rem;
-    border-top: 1px solid var(--img-placeholder);
-    padding-top: 1rem;
-}
-
-.product-specs ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+.trust-grid {
     display: grid;
-    gap: 0.5rem;
-}
-
-.product-specs strong {
-    color: var(--text-main);
-}
-
-.btn-whatsapp {
-    display: block;
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
     text-align: center;
-    background-color: var(--whatsapp-green);
-    color: white;
-    padding: 0.9rem 0;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-    margin-top: auto;
 }
 
-.btn-whatsapp:hover {
-    background-color: var(--hover-green);
-}
+.trust-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--brand-dark); }
+.trust-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
-/* Rodapé */
-.main-footer {
-    background-color: var(--text-main);
-    color: var(--text-light);
-    text-align: center;
-    padding: 3rem 5%;
-    margin-top: auto;
-}
+.main-footer { background-color: var(--brand-dark); color: var(--text-light); text-align: center; padding: 3rem 5%; }
 
-/* Ajustes finos para Mobile */
-@media (max-width: 600px) {
-    .main-nav ul {
-        width: 100%;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-    .header-container {
-        justify-content: center;
-        text-align: center;
-    }
-}
-
-/* Estilos do Modal e Zoom */
+/* Modal Refinado */
 .modal-overlay {
-    display: none; /* Oculto por padrão */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
+    align-items: center; justify-content: center;
+    padding: 20px; box-sizing: border-box;
+    animation: fadeInModal 0.3s ease;
 }
 
 .modal-content {
     background-color: var(--card-bg);
-    border-radius: 8px;
-    max-width: 900px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    max-width: 900px; width: 100%;
+    position: relative; overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .fechar-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    color: var(--text-muted);
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    line-height: 1;
+    position: absolute; top: 15px; right: 20px;
+    font-size: 2rem; color: var(--text-muted);
+    background: white; border: none; cursor: pointer;
+    z-index: 10; line-height: 1; border-radius: 50%;
+    width: 40px; height: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.fechar-modal:hover {
-    color: var(--text-main);
-}
-
-.modal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-}
-
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 .zoom-area {
-    width: 100%;
-    aspect-ratio: 4/5;
+    width: 100%; aspect-ratio: 4/5;
     background-color: var(--img-placeholder);
-    background-position: 50% 50%;
-    background-size: cover; /* Estado inicial */
-    cursor: zoom-in;
-    transition: background-size 0.2s ease;
+    background-position: 50% 50%; background-size: cover;
+    cursor: zoom-in; transition: background-size 0.2s ease;
 }
+.zoom-area:hover { background-size: 250%; }
+.modal-info { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
 
-/* Quando passa o mouse, a imagem cresce para revelar os detalhes */
-.zoom-area:hover {
-    background-size: 250%; /* Nível de aproximação */
+.btn-whatsapp {
+    display: block; width: 100%; text-align: center;
+    background-color: var(--whatsapp-green); color: white;
+    padding: 1rem 0; text-decoration: none; font-weight: 600;
+    border-radius: 6px; transition: all 0.2s ease;
+    margin-top: auto;
 }
-
-.modal-info {
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-}
+.btn-whatsapp:hover { background-color: var(--hover-green); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
 
 @media (max-width: 768px) {
-    .modal-grid {
-        grid-template-columns: 1fr;
-    }
-    .modal-info {
-        padding: 1.5rem;
-    }
-    .modal-content {
-        max-height: 90vh;
-        overflow-y: auto;
-    }
+    .modal-grid { grid-template-columns: 1fr; }
+    .modal-info { padding: 2rem 1.5rem; }
+    .modal-content { max-height: 90vh; overflow-y: auto; }
 }
