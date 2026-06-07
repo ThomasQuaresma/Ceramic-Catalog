@@ -22,17 +22,36 @@ function renderizarCatalogo(produtos) {
         card.style.animationDelay = `${index * 0.05}s`;
         
         const urlImagem = produto.imagem || 'https://via.placeholder.com/300x400.png';
+        const urlModelo3D = produto.modelo3d || './modelo.glb';
         
-        // Badge atualizado refletindo o novo comportamento
+        // Transformamos o objeto produto em uma string segura para poder passar no clique do botão
+        const produtoString = JSON.stringify(produto).replace(/"/g, '&quot;');
+        
         card.innerHTML = `
-            <div class="product-image-wrapper" style="background-image: url('${urlImagem}'); background-size: cover; background-position: center;">
-                <span class="view-3d-badge">👁️ Ver em 3D</span>
+            <div class="product-image-wrapper" style="background-color: #f5f5f5;">
+                <model-viewer 
+                    src="${urlModelo3D}" 
+                    poster="${urlImagem}" 
+                    alt="Modelo 3D de ${produto.titulo}" 
+                    shadow-intensity="1" 
+                    camera-controls 
+                    auto-rotate 
+                    ar 
+                    ar-modes="webxr scene-viewer quick-look" 
+                    ar-scale="fixed"
+                    loading="lazy" 
+                    style="width: 100%; height: 100%; outline: none;"
+                >
+                    <button slot="ar-button" class="custom-ar-button-grid">
+                        📸 Projetar
+                    </button>
+                </model-viewer>
             </div>
             <h3 class="product-title">${produto.titulo}</h3>
             <p class="product-material">${produto.material}</p>
+            <button class="btn-detalhes" onclick='abrirModal(${produtoString})'>Ver Detalhes</button>
         `;
         
-        card.addEventListener('click', () => abrirModal(produto));
         grid.appendChild(card);
     });
 }
@@ -71,15 +90,16 @@ function abrirModal(produto) {
     const btnWhats = document.getElementById('modal-whatsapp');
     btnWhats.href = `https://wa.me/SEUNUMERO?text=Olá, quero fechar pedido do modelo ${produto.titulo}.`;
     
-    // CAPTURA O COMPONENTE FIXO NO HTML
+    // CAPTURA O COMPONENTE JÁ EXISTENTE NO HTML
     const viewer = document.getElementById('visualizador-3d');
     
-    // Agora ele tenta puxar o modelo 3D específico do produto no JSON. 
-    // Se não tiver, ele usa o './modelo.glb' que você baixou como teste padrão.
+    // DEFINE OS CAMINHOS LOCAIS
+    // Se o produto tiver a propriedade 'modelo3d' no JSON, ele usa ela. 
+    // Caso contrário, cai no arquivo padrão './modelo.glb' que está na raiz.
     const urlModelo3D = produto.modelo3d || './modelo.glb'; 
     const urlImagemPoster = produto.imagem || 'https://via.placeholder.com/1000x1200.png';
     
-    // ATUALIZA OS DADOS MANTENDO A SEGURANÇA
+    // APENAS ATUALIZA OS ATRIBUTOS (Preserva o mapeamento de cliques do navegador)
     viewer.src = urlModelo3D;
     viewer.poster = urlImagemPoster;
     

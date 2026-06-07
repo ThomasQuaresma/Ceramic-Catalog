@@ -225,3 +225,43 @@ model-viewer {
     .modal-content { max-height: 90vh; overflow-y: auto; }
     .ar-area { aspect-ratio: 1/1; } /* Ajuste quadrado em mobile */
 }
+
+/* Botão AR direto no Card da Vitrine */
+.custom-ar-button-grid {
+    background-color: var(--whatsapp-green);
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    pointer-events: auto;
+}
+
+.custom-ar-button-grid:active { transform: scale(0.95); }
+
+/* Remove a div de clique que ficava por cima da imagem */
+.product-card {
+    cursor: default; /* O card não é mais clicável por inteiro */
+}
+
+/* Novo botão de detalhes para não conflitar com o giro do 3D */
+.btn-detalhes {
+    margin-top: auto;
+    background-color: transparent;
+    color: var(--brand-dark);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-detalhes:hover { background-color: var(--brand-dark); color: white; }

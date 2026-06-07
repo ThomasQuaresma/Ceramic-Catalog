@@ -7,7 +7,7 @@
     "volume": "12 Litros",
     "dimensoes": "35cm (A) x 20cm (Ø)",
     "imagem": "./vaso.webp",
-    "modelo3d": "./modelos/vaso-brutalista.glb" 
+    "modelo3d": "./modelo.glb" 
   },
   {
     "id": "anfora-organica-02",
