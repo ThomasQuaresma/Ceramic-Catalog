@@ -6,7 +6,8 @@
     "material": "Argila texturizada com acabamento em concreto celular.",
     "volume": "12 Litros",
     "dimensoes": "35cm (A) x 20cm (Ø)",
-    "imagem": "https://picsum.photos/seed/brutalista/1000/1200"
+    "imagem": "./vaso.webp",
+    "modelo3d": "./modelos/vaso-brutalista.glb" 
   },
   {
     "id": "anfora-organica-02",

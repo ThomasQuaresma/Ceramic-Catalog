@@ -74,10 +74,12 @@ function abrirModal(produto) {
     // CAPTURA O COMPONENTE FIXO NO HTML
     const viewer = document.getElementById('visualizador-3d');
     
-    const urlModelo3D = "https://modelviewer.dev/shared-assets/models/Shoe.glb"; // Futuramente será produto.modelo3d
+    // Agora ele tenta puxar o modelo 3D específico do produto no JSON. 
+    // Se não tiver, ele usa o './modelo.glb' que você baixou como teste padrão.
+    const urlModelo3D = produto.modelo3d || './modelo.glb'; 
     const urlImagemPoster = produto.imagem || 'https://via.placeholder.com/1000x1200.png';
     
-    // APENAS ATUALIZA OS DADOS (Isso mantém a confiança de segurança do navegador)
+    // ATUALIZA OS DADOS MANTENDO A SEGURANÇA
     viewer.src = urlModelo3D;
     viewer.poster = urlImagemPoster;
     
