@@ -88,7 +88,7 @@ function abrirModal(produto) {
             ar 
             ar-modes="webxr scene-viewer quick-look" 
             ar-scale="fixed" 
-            style="width: 100%; height: 100%; background-color: var(--card-bg); position: relative; z-index: 9999; touch-action: pan-y;"
+            style="width: 100%; height: 100%; background-color: var(--card-bg);"
         >
             <button slot="ar-button" style="background-color: var(--whatsapp-green); color: white; border: none; position: absolute; bottom: 20px; right: 20px; padding: 14px 24px; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); pointer-events: auto;">
                 📸 Projetar no Ambiente
