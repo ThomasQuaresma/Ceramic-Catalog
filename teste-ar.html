@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Isolado AR</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; background: #e0e0e0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        /* Dimensões fixas e simples para não haver colisão de layout */
+        model-viewer { width: 100%; max-width: 400px; height: 500px; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <model-viewer 
+        src="https://modelviewer.dev/shared-assets/models/Shoe.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate>
+    </model-viewer>
+</body>
+</html>
