@@ -7,7 +7,6 @@
     --border-color: #EAEAEA;
     --img-placeholder: #EEEEEE;
     --whatsapp-green: #25D366;
-    --hover-green: #1ebd5a;
     --brand-dark: #1A1A1A;
 }
 
@@ -22,7 +21,6 @@ body {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 
-/* Animações Globais */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -33,6 +31,7 @@ body {
     to { opacity: 1; }
 }
 
+/* Header */
 .main-header {
     padding: 1.5rem 0;
     background-color: var(--card-bg);
@@ -48,12 +47,13 @@ body {
 .main-nav a { text-decoration: none; color: var(--text-muted); font-weight: 400; transition: color 0.2s ease; }
 .main-nav a:hover { color: var(--brand-dark); }
 
+/* Main Content */
 .main-content { margin-top: 4rem; margin-bottom: 4rem; }
 .hero-section { margin-bottom: 3rem; text-align: center; }
 .hero-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; margin-bottom: 1rem; letter-spacing: -0.5px; }
 .hero-description { color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
-/* Filtros de Categoria */
+/* Filtros */
 .filtros-section { margin-bottom: 3rem; text-align: center; }
 .filtros-container {
     display: inline-flex;
@@ -82,7 +82,7 @@ body {
 .btn-filtro:hover { color: var(--brand-dark); }
 .btn-filtro.ativo { background-color: var(--brand-dark); color: white; }
 
-/* Grid e Cartões */
+/* Grid de Produtos */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    opacity: 0; /* Inicia invisível para a animação */
+    opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -116,7 +116,7 @@ body {
     overflow: hidden;
 }
 
-.zoom-badge {
+.view-3d-badge {
     position: absolute;
     bottom: 12px;
     right: 12px;
@@ -130,37 +130,23 @@ body {
     transition: background 0.2s ease;
 }
 
-.product-card:hover .zoom-badge { background: var(--brand-dark); color: white; }
+.product-card:hover .view-3d-badge { background: var(--brand-dark); color: white; }
 .product-title { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.5rem 0; color: var(--brand-dark); }
 .product-material { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.4; flex-grow: 1; }
 
-/* Seção de Confiança (Trust) */
-.trust-section {
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 4rem 0;
-    margin-top: 5rem;
-}
-
-.trust-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    text-align: center;
-}
-
+/* Trust Section & Footer */
+.trust-section { background-color: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 4rem 0; margin-top: 5rem; }
+.trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center; }
 .trust-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--brand-dark); }
 .trust-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
-
 .main-footer { background-color: var(--brand-dark); color: var(--text-light); text-align: center; padding: 3rem 5%; }
 
-/* Modal Refinado */
+/* Modal Focado em 3D e AR */
 .modal-overlay {
     display: none;
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro para evidenciar o 3D */
+    backdrop-filter: blur(5px);
     z-index: 1000;
     align-items: center; justify-content: center;
     padding: 20px; box-sizing: border-box;
@@ -172,7 +158,7 @@ body {
     border-radius: 12px;
     max-width: 900px; width: 100%;
     position: relative; overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .fechar-modal {
@@ -184,26 +170,58 @@ body {
 }
 
 .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.zoom-area {
-    width: 100%; aspect-ratio: 4/5;
-    background-color: var(--img-placeholder);
-    background-position: 50% 50%; background-size: cover;
-    cursor: zoom-in; transition: background-size 0.2s ease;
+
+/* Nova Área do 3D (Substitui o antigo Zoom) */
+.ar-area {
+    width: 100%; 
+    aspect-ratio: 4/5;
+    background-color: #f5f5f5; /* Fundo neutro limpo */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.zoom-area:hover { background-size: 250%; }
+
+/* Reset do componente web */
+model-viewer {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+/* Botão do Google estilizado via CSS limpo */
+.custom-ar-button {
+    background-color: var(--whatsapp-green);
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    pointer-events: auto; /* Força permissão de clique */
+}
+
+.custom-ar-button:active { transform: scale(0.95); }
+
 .modal-info { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
 
 .btn-whatsapp {
     display: block; width: 100%; text-align: center;
-    background-color: var(--whatsapp-green); color: white;
+    background-color: var(--brand-dark); color: white;
     padding: 1rem 0; text-decoration: none; font-weight: 600;
     border-radius: 6px; transition: all 0.2s ease;
     margin-top: auto;
 }
-.btn-whatsapp:hover { background-color: var(--hover-green); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+.btn-whatsapp:hover { background-color: #333; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0, 0.2); }
 
 @media (max-width: 768px) {
     .modal-grid { grid-template-columns: 1fr; }
     .modal-info { padding: 2rem 1.5rem; }
     .modal-content { max-height: 90vh; overflow-y: auto; }
+    .ar-area { aspect-ratio: 1/1; } /* Ajuste quadrado em mobile */
 }

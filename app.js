@@ -23,9 +23,10 @@ function renderizarCatalogo(produtos) {
         
         const urlImagem = produto.imagem || 'https://via.placeholder.com/300x400.png';
         
+        // Badge atualizado refletindo o novo comportamento
         card.innerHTML = `
             <div class="product-image-wrapper" style="background-image: url('${urlImagem}'); background-size: cover; background-position: center;">
-                <span class="zoom-badge">Ver Detalhes</span>
+                <span class="view-3d-badge">👁️ Ver em 3D</span>
             </div>
             <h3 class="product-title">${produto.titulo}</h3>
             <p class="product-material">${produto.material}</p>
@@ -58,7 +59,7 @@ function configurarFiltros() {
 
 function abrirModal(produto) {
     const modal = document.getElementById('produto-modal');
-    const zoomContainer = document.getElementById('zoom-container');
+    const arContainer = document.getElementById('ar-container');
     
     document.getElementById('modal-titulo').textContent = produto.titulo;
     document.getElementById('modal-descricao').textContent = produto.material;
@@ -71,13 +72,14 @@ function abrirModal(produto) {
     const btnWhats = document.getElementById('modal-whatsapp');
     btnWhats.href = `https://wa.me/SEUNUMERO?text=Olá, quero fechar pedido do modelo ${produto.titulo}.`;
     
-    zoomContainer.innerHTML = '';
-    zoomContainer.style.backgroundImage = 'none';
+    // Zera o conteúdo e o CSS antigo da div sempre que abrir um novo
+    arContainer.innerHTML = '';
     
     const urlModelo3D = "https://modelviewer.dev/shared-assets/models/Shoe.glb";
     const urlImagemPoster = produto.imagem || 'https://via.placeholder.com/1000x1200.png';
     
-    zoomContainer.innerHTML = `
+    // Injeção limpa. Apenas os atributos estritamente necessários.
+    arContainer.innerHTML = `
         <model-viewer 
             src="${urlModelo3D}" 
             poster="${urlImagemPoster}" 
@@ -87,10 +89,9 @@ function abrirModal(produto) {
             auto-rotate 
             ar 
             ar-modes="webxr scene-viewer quick-look" 
-            ar-scale="fixed" 
-            style="width: 100%; height: 100%; background-color: var(--card-bg);"
+            ar-scale="fixed"
         >
-            <button slot="ar-button" style="background-color: var(--whatsapp-green); color: white; border: none; position: absolute; bottom: 20px; right: 20px; padding: 14px 24px; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); pointer-events: auto;">
+            <button slot="ar-button" class="custom-ar-button">
                 📸 Projetar no Ambiente
             </button>
         </model-viewer>
