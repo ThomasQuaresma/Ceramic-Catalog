@@ -59,7 +59,6 @@ function configurarFiltros() {
 
 function abrirModal(produto) {
     const modal = document.getElementById('produto-modal');
-    const arContainer = document.getElementById('ar-container');
     
     document.getElementById('modal-titulo').textContent = produto.titulo;
     document.getElementById('modal-descricao').textContent = produto.material;
@@ -72,30 +71,15 @@ function abrirModal(produto) {
     const btnWhats = document.getElementById('modal-whatsapp');
     btnWhats.href = `https://wa.me/SEUNUMERO?text=Olá, quero fechar pedido do modelo ${produto.titulo}.`;
     
-    // Zera o conteúdo e o CSS antigo da div sempre que abrir um novo
-    arContainer.innerHTML = '';
+    // CAPTURA O COMPONENTE FIXO NO HTML
+    const viewer = document.getElementById('visualizador-3d');
     
-    const urlModelo3D = "https://modelviewer.dev/shared-assets/models/Shoe.glb";
+    const urlModelo3D = "https://modelviewer.dev/shared-assets/models/Shoe.glb"; // Futuramente será produto.modelo3d
     const urlImagemPoster = produto.imagem || 'https://via.placeholder.com/1000x1200.png';
     
-    // Injeção limpa. Apenas os atributos estritamente necessários.
-    arContainer.innerHTML = `
-        <model-viewer 
-            src="${urlModelo3D}" 
-            poster="${urlImagemPoster}" 
-            alt="Modelo 3D interativo do produto" 
-            shadow-intensity="1" 
-            camera-controls 
-            auto-rotate 
-            ar 
-            ar-modes="webxr scene-viewer quick-look" 
-            ar-scale="fixed"
-        >
-            <button slot="ar-button" class="custom-ar-button">
-                📸 Projetar no Ambiente
-            </button>
-        </model-viewer>
-    `;
+    // APENAS ATUALIZA OS DADOS (Isso mantém a confiança de segurança do navegador)
+    viewer.src = urlModelo3D;
+    viewer.poster = urlImagemPoster;
     
     modal.style.display = 'flex';
 }

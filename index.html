@@ -71,7 +71,24 @@
             <button class="fechar-modal" id="btn-fechar">&times;</button>
             <div class="modal-grid">
                 
-                <div class="ar-area" id="ar-container"></div>
+                <div class="ar-area" id="ar-container">
+                    <model-viewer 
+                        id="visualizador-3d"
+                        src="" 
+                        poster="" 
+                        alt="Modelo 3D interativo do produto" 
+                        shadow-intensity="1" 
+                        camera-controls 
+                        auto-rotate 
+                        ar 
+                        ar-modes="webxr scene-viewer quick-look" 
+                        ar-scale="fixed"
+                    >
+                        <button slot="ar-button" class="custom-ar-button">
+                            📸 Projetar no Ambiente
+                        </button>
+                    </model-viewer>
+                </div>
                 
                 <div class="modal-info">
                     <h2 id="modal-titulo" style="margin-top: 0; font-size: 1.8rem;">Nome</h2>
