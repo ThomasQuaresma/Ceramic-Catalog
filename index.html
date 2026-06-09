@@ -6,9 +6,8 @@
     <title>Estúdio Cerâmica | Vasos Texturizados</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
@@ -27,13 +26,17 @@
 
     <main class="container main-content">
         <section class="hero-section">
-            <h2 class="hero-title">Design em Relevo</h2>
-            <p class="hero-description">Texturas uniques esculpidas à mão, projetadas para transformar a atmosfera do seu ambiente interno ou externo através do contraste de luz e sombra.</p>
+            <span class="hero-eyebrow">Peças esculpidas à mão · Desde 2019</span>
+            <h2 class="hero-title">Argila viva,<br><em>textura real</em></h2>
+            <p class="hero-description">Vasos de alta temperatura moldados com relevos únicos. Visualize cada peça no seu ambiente com escala real — antes de comprar.</p>
+            <div class="hero-ar-badge">
+                <span>📐</span> Projete em tamanho real via câmera
+            </div>
         </section>
 
         <section class="filtros-section">
             <div class="filtros-container" id="container-filtros">
-                <button class="btn-filtro ativo" data-categoria="todos">Todos os Modelos</button>
+                <button class="btn-filtro ativo" data-categoria="todos">Todos</button>
                 <button class="btn-filtro" data-categoria="rustico">Linha Rústica</button>
                 <button class="btn-filtro" data-categoria="moderno">Design Moderno</button>
                 <button class="btn-filtro" data-categoria="organico">Formas Orgânicas</button>
@@ -46,59 +49,52 @@
     </main>
 
     <section id="garantia" class="trust-section">
-        <div class="container trust-grid">
-            <div class="trust-item">
-                <h3 class="trust-title">Embalagem Estrutural</h3>
-                <p class="trust-text">Caixas reforçadas e berços de contenção para garantir que a cerâmica chegue intacta ao seu destino.</p>
-            </div>
-            <div class="trust-item">
-                <h3 class="trust-title">Produção Artesanal</h3>
-                <p class="trust-text">Peças únicas esculpidas à mão com variações exclusivas de textura, relevo e tonalidade da argila.</p>
-            </div>
-            <div class="trust-item">
-                <h3 class="trust-title">Atendimento Direto</h3>
-                <p class="trust-text">Suporte especializado via WhatsApp para orientar sobre medidas, impermeabilização e cuidados técnicos.</p>
+        <div class="container">
+            <p class="trust-eyebrow">Por que comprar aqui</p>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h3 class="trust-title">Embalagem Estrutural</h3>
+                    <p class="trust-text">Caixas reforçadas e berços de contenção para garantir que a cerâmica chegue intacta ao seu destino.</p>
+                </div>
+                <div class="trust-item">
+                    <h3 class="trust-title">Produção Artesanal</h3>
+                    <p class="trust-text">Peças únicas esculpidas à mão com variações exclusivas de textura, relevo e tonalidade da argila.</p>
+                </div>
+                <div class="trust-item">
+                    <h3 class="trust-title">Atendimento Direto</h3>
+                    <p class="trust-text">Suporte especializado via WhatsApp para orientar sobre medidas, impermeabilização e cuidados técnicos.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
-        <p>&copy; 2026 Estúdio Cerâmica. Feito à mão.</p>
+        <p>&copy; 2026 Estúdio Cerâmica — Feito à mão, entregue com cuidado.</p>
     </footer>
 
+    <!-- MODAL -->
     <div id="produto-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="fechar-modal" id="btn-fechar">&times;</button>
             <div class="modal-grid">
                 
                 <div class="ar-area" id="ar-container">
-                    <model-viewer 
-                        id="visualizador-3d"
-                        src="" 
-                        poster="" 
-                        alt="Modelo 3D interativo do produto" 
-                        shadow-intensity="1" 
-                        camera-controls 
-                        auto-rotate 
-                        ar 
-                        ar-modes="webxr scene-viewer quick-look" 
-                        ar-scale="fixed"
-                    >
-                        <button slot="ar-button" class="custom-ar-button">
-                            📸 Projetar no Ambiente
-                        </button>
-                    </model-viewer>
+                    <!-- Conteúdo injetado via JS: model-viewer (3D) ou zoom foto -->
                 </div>
                 
                 <div class="modal-info">
-                    <h2 id="modal-titulo" style="margin-top: 0; font-size: 1.8rem;">Nome</h2>
-                    <p id="modal-preco" style="font-size: 1.5rem; font-weight: 600; color: var(--whatsapp-green); margin-bottom: 1rem;">Sob Consulta</p>
-                    <p id="modal-descricao" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">Descrição</p>
+                    <p class="modal-category" id="modal-categoria">—</p>
+                    <h2 id="modal-titulo">Nome</h2>
+                    <p id="modal-preco">Sob Consulta</p>
+                    <p id="modal-descricao">Descrição</p>
                     
-                    <h4 style="margin-bottom: 0.5rem; font-weight: 600;">Especificações</h4>
-                    <ul id="modal-specs" style="list-style: none; padding: 0; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;"></ul>
+                    <p class="modal-specs-label">Especificações</p>
+                    <ul id="modal-specs"></ul>
                     
-                    <a href="#" id="modal-whatsapp" class="btn-whatsapp">Comprar via WhatsApp</a>
+                    <a href="#" id="modal-whatsapp" class="btn-whatsapp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 0C5.373 0 0 5.372 0 11.999c0 2.117.554 4.103 1.524 5.83L0 24l6.335-1.51A12.01 12.01 0 0012.004 24C18.63 24 24 18.628 24 12S18.63 0 12.004 0zm0 21.818a9.808 9.808 0 01-4.995-1.366l-.358-.213-3.76.898.94-3.664-.233-.374A9.775 9.775 0 012.18 12c0-5.417 4.41-9.82 9.824-9.82 5.418 0 9.824 4.403 9.824 9.82 0 5.418-4.406 9.818-9.824 9.818z"/></svg>
+                        Comprar via WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
